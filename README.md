@@ -11,11 +11,11 @@ A workshop to get started with Red Hat Integration Technology such as CamelK, Ka
 #### Instructions:
 1. Create a Telegram bot as shown here: https://www.nicolaferraro.me/2016/05/27/creating-a-telegram-bot-in-5-minutes-with-apache-camel/
 2. Save the API token somewhere safe
-3. Paste your token in application.properties file
+3. Paste your token in marked spaces
 4. Run the command 
     
     ```Shell
-    kamel run --property file:application.properties hashtagbot.groovy --dev
+    kamel run hashtagbot.groovy --dev
     ```
 
 5. Open your Telegram account (in web browser or on mobile device)
