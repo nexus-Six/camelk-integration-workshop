@@ -15,7 +15,7 @@ You should get all the availble `kamelets` offered by Camel K
 
 
 ### Timer Source integration
-Today we are going to use Timer Source today.
+Today we are going to use Timer Source.
 
 As soon as the `timer-source.kamelet` is available in your cluster, you can use it in any integration such as the one defined in `timer.groovy`
 
@@ -32,7 +32,9 @@ As soon as the integration starts, you should be able to log the timer source ev
 [1] 2022-03-18 08:42:07,203 INFO  [route1] (Camel (camel-1) thread #0 - timer://tick) Hello World
 ```
 
-### Timer Source KameletBinding [not working yet]
+### Timer Source KameletBinding 
+
+Make sure you have `OpenShift-Serverless` operator installed. Don't forget to install/create an instance of `Knative Eventing` and `Knative Serving`
 
 First you should declare the knative destination:
 
