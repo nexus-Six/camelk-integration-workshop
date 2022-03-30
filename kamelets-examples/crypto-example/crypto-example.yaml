@@ -1,0 +1,8 @@
+- from:
+    uri: "timer:update"
+    parameters:
+        period: 10000
+    steps:
+    - to: "https://www.binance.com/api/v3/ticker/price?symbol=ADAUSDT"
+    - log: "Sending ADA/USDT data to the broker: ${body}"
+    - to: "knative:event/market.ada.usdt"
