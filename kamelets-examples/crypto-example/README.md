@@ -6,7 +6,7 @@ https://docs.openshift.com/container-platform/4.10/serverless/cli_tools/installi
 
 
 Install "Red Hat Integration - Camel K" operator on your OpenShift cluster.
-Additionally, install "Red Hat OpenShift Serverless" operator and from there, `Knative Serving` and `Knative Eventing` instances.
+Additionally, install "Red Hat OpenShift Serverless" operator and from there, create `Knative Serving` and `Knative Eventing` instances.
 
 Swap Telegram bot credentials to your own in `crypto-display.yaml`. It should look like this:
 
