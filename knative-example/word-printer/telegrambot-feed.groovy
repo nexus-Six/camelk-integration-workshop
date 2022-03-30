@@ -1,4 +1,7 @@
-from('telegram:bots?authorizationToken=5192208346:AAGTcJjERQYOpP4f0TgQwVPGZUJ_iQBT3io')
+// haven't test
+
+
+from('telegram:bots?authorizationToken=<yourToken&ChatID>')
   .convertBodyTo(String.class)
   .to('log:info')
   .to('knative:channel/messages')
