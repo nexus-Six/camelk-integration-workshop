@@ -1,7 +1,9 @@
 ## Get the price of Cardano coin from Binance and send it to the telegram channel
 
 Make sure you have the `kamel` CLI, `kn` CLI and `oc` CLI installed. Below links might help:
-https://camel.apache.org/camel-k/1.8.x/installation/installation.html
+
+https://camel.apache.org/camel-k/1.8.x/installation/installation.html 
+
 https://docs.openshift.com/container-platform/4.10/serverless/cli_tools/installing-kn.htm
 
 
