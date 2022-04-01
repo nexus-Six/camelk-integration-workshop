@@ -1,0 +1,39 @@
+apiVersion: camel.apache.org/v1alpha1
+kind: Kamelet
+metadata:
+  name: chuck-norris-source
+  labels:
+    camel.apache.org/kamelet.type: "source"
+spec:
+  definition:
+    title: "Chuck Norris Source"
+    description: |-
+      Gets periodically Chuck Norris jokes from http://www.icndb.com/
+    type: object
+    properties:
+      period:
+        title: Period
+        description: The interval (msec) to wait before getting the next joke
+        type: integer
+        default: 10000
+  types:
+    out:
+      mediaType: application/json
+  dependencies:
+    - "camel:kamelet"
+    - "camel:timer"
+    - "camel:http"
+    - "camel:jsonpath"
+  template:
+    from:
+      uri: "timer:chuck"
+      parameters:
+        period: "{{period}}"
+      steps:
+        - to: "http://api.icndb.com/jokes/random?exclude=[explicit]"
+        - set-header:
+            name: Content-Type
+            constant: "application/json"
+        - set-body:
+            jsonpath: "$.value.joke"
+        - to: "kamelet:sink"
