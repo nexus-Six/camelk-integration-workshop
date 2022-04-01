@@ -1,0 +1,30 @@
+apiVersion: camel.apache.org/v1alpha1
+kind: Kamelet
+metadata:
+  name: beer-source
+  labels:
+    camel.apache.org/kamelet.type: "source"
+spec:
+  definition:
+    title: "Beer Source"
+    description: "Retrieve a random beer from catalog"
+    properties:
+      period:
+        title: Period
+        description: The interval between two events
+        type: integer
+        default: 1000
+  types:
+    out:
+      mediaType: application/json
+  flow:
+    from:
+      uri: "timer:yaml"
+      parameters:
+        period: "{{period}}"
+      steps:
+      - to: "https://random-data-api.com/api/beer/random_beer"
+      - set-header:
+          name: "Content-Type"
+          constant: "application/json"
+      - to: "kamelet:sink"

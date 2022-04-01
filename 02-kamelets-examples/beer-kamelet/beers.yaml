@@ -1,0 +1,4 @@
+- from:
+    uri: "kamelet:beer-source?period=5000"
+    steps:
+      - log: "${body}"

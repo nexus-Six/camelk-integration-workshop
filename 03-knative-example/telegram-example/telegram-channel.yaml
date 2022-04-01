@@ -1,0 +1,5 @@
+apiVersion: messaging.knative.dev/v1
+kind: InMemoryChannel
+metadata:
+  name: telegram
+
