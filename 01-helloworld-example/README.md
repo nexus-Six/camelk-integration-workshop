@@ -2,7 +2,7 @@
 
 This example demonstrates a simple Camel K integration that periodically prints a "Hello World from Camel K" message.
 
-Ensure that you have an OpenShift cluster available and the necessary command line tools such as `oc` and `kamel` installed on your laptop/computer. Remember to check the requirements on [README.me](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/README.md)
+Ensure that you have an OpenShift cluster available and the necessary command line tools such as `oc` and `kamel` installed on your laptop/computer. Remember to check the requirements on [README.md](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/README.md)
 
 ### 1. Preparing the project 
 
