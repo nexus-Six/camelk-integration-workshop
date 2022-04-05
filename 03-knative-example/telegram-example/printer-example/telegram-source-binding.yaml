@@ -9,15 +9,8 @@ spec:
       apiVersion: camel.apache.org/v1alpha1
       name: telegram-simple-source
     properties:
-      authorizationToken: "<put-your-botToken>"
-  steps:
-  - ref:
-      kind: Kamelet
-      apiVersion: camel.apache.org/v1alpha1
-      name: has-header-filter-action
-    properties:
-      name: "chat-id"
-      value: "<your-chat-id-optional>"
+      authorizationToken: "<your-bot-token>"
+        
   sink:
     ref:
       apiVersion: messaging.knative.dev/v1

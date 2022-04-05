@@ -44,4 +44,4 @@ or
 
 You can check the logs of the integration using the command:
 
-`kamel log <integration name>`
+`kamel logs <integration name>`

@@ -6,7 +6,7 @@ To finish all the tasks in this workshop, here's what you need to have:
 
 #### 1. OpenShift Cluster with admin privileges. You need to be able to install operators.
 
-#### 2. Install CLIs and move them to the PATH
+#### 2. Install CLIs on your local maschine and move them to the PATH
     1. `kamel` CLI 
     2. `kn` CLI 
     3. `oc` CLI 
@@ -16,6 +16,7 @@ To finish all the tasks in this workshop, here's what you need to have:
     2. Red Hat OpenShift Serverless with instances of:
         a. Knative Serving 
         b. Knative Eventing
+    3. Red Hat Integration - AMQ Streams
 
 #### 4. Telegram bot
 1. Create a Telegram bot as shown here: https://www.nicolaferraro.me/2016/05/27/creating-a-telegram-bot-in-5-minutes-with-apache-camel/

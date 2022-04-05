@@ -9,19 +9,13 @@ spec:
       apiVersion: messaging.knative.dev/v1
       name: messages
 
-  # steps:
-    # - ref:
-        # kind: Kamelet
-        # apiVersion: camel.apache.org/v1alpha1
-        # name: chuck-norris-source
-
   sink:
     ref:
       kind: Kamelet
       apiVersion: camel.apache.org/v1alpha1
       name: telegram-simple-sink
     properties:
-      authorizationToken: "5192208346:AAGTcJjERQYOpP4f0TgQwVPGZUJ_iQBT3io"
-      chatId: "1023325072"
+      authorizationToken: "<your-bot-token>"
+      chatId: "<your-chatid"
 
       
