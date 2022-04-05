@@ -25,7 +25,7 @@ spec:
         - urn:alm:descriptor:com.tectonic.ui:password
   types:
     out:
-      mediaType: application/json
+      mediaType: text/plain
   dependencies:
     - "camel:jackson"
     - "camel:kamelet"
@@ -37,12 +37,10 @@ spec:
       parameters:
         authorizationToken: "{{authorizationToken}}"
       steps:
-      - set-header:
-          name: chat-id
-          simple: "${header[CamelTelegramChatId]}"
-      - set-header:
-          name: ce-chat-id
-          simple: "${header[CamelTelegramChatId]}"
-      - marshal:
-          json: {}
-      - to: "kamelet:sink"
+        - convert-body-to:
+            type: "java.lang.String"
+            charset: "UTF8"
+        - filter:
+            simple: "${body} != null"
+        - log: "${body}"
+        - to: "kamelet:sink"

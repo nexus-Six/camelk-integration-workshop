@@ -9,12 +9,6 @@ spec:
       apiVersion: messaging.knative.dev/v1
       name: messages
 
-  # steps:
-    # - ref:
-        # kind: Kamelet
-        # apiVersion: camel.apache.org/v1alpha1
-        # name: chuck-norris-source
-
   sink:
     ref:
       kind: Kamelet
