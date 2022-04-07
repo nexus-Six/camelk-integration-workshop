@@ -55,6 +55,15 @@ IDEs to recognize them.
 
 ### Run an integration
 
+Kamelets can be used in integratinos as if they were standard Camel components, we can write the following integration to use the Kamelet:
+
+```
+- from:
+    uri: "kamelet:chuck-norris-source?period=5000"
+    steps:
+      - log: "${body}"
+```
+
 If you run the integration in dev mode, you will be able to see the chuck norris joke in the terminal window:
 
 `kamel run joke-log.yaml --dev`
