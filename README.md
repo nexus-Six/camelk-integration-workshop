@@ -58,7 +58,7 @@ First, we need to login to the OpenShift cluster from both web console and termi
 
 We still need two things:
 1. A telegram bot
-2. Chat ID
+2. Our Telegram Chat ID
 
 #### Create a telegram bot
 &#9744; Search for username @BotFather \
@@ -74,7 +74,7 @@ We still need two things:
 
 > Once we get the telegram bot token and the chat ID, remember to save it somewhere that you can find them. We will need them in the following examples.
 
-#### Let's get start
+#### Let's get started
 
 &#9744; `oc new-project userX-chuck-norris` - create a new project for the second example \
 &#9744; oc apply -f [chuck-norris-source.kamelet.yaml](https://github.com/nexus-Six/camelk-integration-workshop/blob/readme-br/02-kamelets-examples/chuck-norris-example/chuck-norris-source.kamelet.yaml) - use the `kamel` to create the chuck norris source kamelet 
