@@ -40,7 +40,7 @@ First, we need to login to the OpenShift cluster from both web console and termi
 &#9744; `kamel run helloworld.groovy` - run the integration using `kamel`
 > It might take up to 3min for the integration running. 
 
-&#9744; `oc get integrations` or `kamel get` - check if the integration is  running \
+&#9744; `oc get integrations` - check if the integration is running \
 &#9744; `kamel logs helloworld` - get the logs of the running integration
 > You will see the hello world message printing out in the terminal each 3 seconds
 > If you run `kamel run helloworld.groovy --logs` in the beginning, you will see the logs showing in the terminal as well
@@ -77,31 +77,41 @@ We still need two things:
 #### Let's get start
 
 &#9744; `oc new-project userX-chuck-norris` - create a new project for the second example \
-&#9744; oc apply -f [chuck-norris-source.kamelet.yaml](https://github.com/nexus-Six/camelk-integration-workshop/blob/readme-br/02-kamelets-examples/chuck-norris-example/chuck-norris-source.kamelet.yaml) - use the `kamel` to create the chuck norris source kamelet 
+&#9744; Create a [chuck-norris-source.kamelet.yaml](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/02-kamelets-examples/chuck-norris-example/chuck-norris-source.kamelet.yaml) 
+> More details will be present during the workshop.
+
+&#9744; `oc apply -f chuck-norris-source.kamelet.yaml` - use the `kamel` to create the chuck norris source kamelet 
 > You can use `kamel init xxxx-source.kamelet.yaml / xxxx-sink.kamelet.yaml` to instantiate a kamelet template for creating your own custom kamelet. 
 
 &#9744; `oc get kamelets` - check if the chuck norris source is ready \
-&#9744; kamel run [chuck-norris-example.groovy](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/02-kamelets-examples/chuck-norris-example/chuck-norris-example.groovy) --dev - run the integration using chuck norris kamelet in the "dev mode" 
+&#9744; create a [chuck-norris-example.groovy](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/02-kamelets-examples/chuck-norris-example/chuck-norris-example.groovy) \
+&#9744; `kamel run chuck-norris-example.groovy --dev`- run the integration using chuck norris kamelet in the "dev mode" 
 > You should see the jokes appearing in the terminal. 
 > [All the supported languages for Camel K integration](https://camel.apache.org/camel-k/1.8.x/languages/languages.html)
 
-&#9744; kamel run [chuck-norris-telegram.groovy](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/02-kamelets-examples/chuck-norris-example/chuck-norris-telegram.groovy) --dev - run the integration with telegram, provide the bot Token and chat ID \
+&#9744; create a [chuck-norris-telegram.groovy](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/02-kamelets-examples/chuck-norris-example/chuck-norris-telegram.groovy) \
+&#9744; `kamel run chuck-norris-telegram.groovy --dev` - run the integration with telegram, provide the bot Token and chat ID 
+> You should see the jokes sending to your telegram.
+
 &#9744; `oc delete project userX-chuck-norris` - clean up the project
 
 
 ### 3. Message Printer
-In [this example](https://github.com/nexus-Six/camelk-integration-workshop/tree/readme-br/03-knative-example/telegram-example/printer-example), we will create a simple telegram source `Kamelet` and use `KameletBinding` to bind the source to a Knative channel. Then we will create a **Printer** that prints out the messages sent to the telegram source. 
+In [this example](https://github.com/nexus-Six/camelk-integration-workshop/tree/master/03-knative-example/telegram-example/printer-example), we will create a simple telegram source `Kamelet` and use `KameletBinding` to bind the source to a Knative channel. Then we will create a **Printer** that prints out the messages sent to the telegram source. 
 
 &#9744; `oc new-project userX-message-printer` - create a new project for the message printer example
 &#9744; `oc get csv` - make sure the Camel K and Serverless is running in your namespace 
 > We will elaborate more on the Serverless and Knative during the workshop. 
 
-&#9744; oc apply -f [telegram-simple-source.kamelet.file](https://github.com/nexus-Six/camelk-integration-workshop/blob/readme-br/03-knative-example/telegram-example/printer-example/telegram-simple-source.kamelet.yaml) - create the telegram source kamelet
+&#9744; create a [telegram-simple-source.kamelet.yaml](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/03-knative-example/telegram-example/printer-example/telegram-simple-source.kamelet.yaml) \
+&#9744; `oc apply -f telegram-simple-source.kamelet.yaml` - create the telegram source kamelet
 > More explanation for the kamelet file will be present in the workshop.
 
 &#9744; `oc get kamelets` - check if the source kamelet is ready \
-&#9744; oc apply -f [telegram-channel.yaml](https://github.com/nexus-Six/camelk-integration-workshop/blob/readme-br/03-knative-example/telegram-example/printer-example/telegram-channel.yaml) - create a Knative InMemory Channel \
-&#9744; oc apply -f [telegram-source-binding.yaml](https://github.com/nexus-Six/camelk-integration-workshop/blob/readme-br/03-knative-example/telegram-example/printer-example/telegram-source-binding.yaml) - create the binding between the Knative channel and the telegram source \
+&#9744; Create a [telegram-channel.yaml](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/03-knative-example/telegram-example/printer-example/telegram-channel.yaml) on the cluster \
+&#9744; `oc apply -f telegram-channel.yaml` - create a Knative InMemory Channel \
+&#9744; create a [telegram-source-binding.yaml](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/03-knative-example/telegram-example/printer-example/telegram-source-binding.yaml) that binds the Knative channel to the telegram source \
+&#9744; `oc apply -f telegram-source-binding.yaml` - create the binding between the Knative channel and the telegram source \
 &#9744; `oc get integrations` - check the status of the kamelet binding \
 &#9744; oc apply -f [printer.groovy](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/03-knative-example/telegram-example/printer-example/printer.groovy) - create the integration that prints out the messages sent to the telegram bot 
 > We will explain it in details during the workshop.
