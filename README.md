@@ -22,27 +22,6 @@ We need the following operators installed on the OpenShift cluster:
 -  Red Hat Integration - Camel K
 -  Red Hat OpenShift Serverless  
 
-### Create a telegram account 
-We prepared three Camel K examples, from simple to advanced. For the advanced examples, we will run an integration between telegram and Knative sources. Therefore, we need a telegram account before we get started.
-
-> Note: if you haven't used telegram before, you can simply download the `Telegram` mobile app and create a new account there. Remember to create an unique username as well.
-
-After we have the telegram account, we still need two things:
-1. A telegram bot
-2. Chat ID
-
-#### Create a telegram bot
-&#9744; Search for username @BotFather \
-&#9744; Start the chat (/start) \
-&#9744; Send /newbot to @BotFather \
-&#9744; Follow the instruction of @BotFather and create a name and username for the bot.
-&#9744; Once the bot is created, we will get a token to access the HTTP API, **keep the token secure and store it safely**. 
-
-#### Get our Chat ID
-&#9744; Search for username @RawDataBot with name `Telegram Bot Raw` \
-&#9744; Start the chat (/start) \
-&#9744; You will receive a message from the @RawDataBot, store the `"id"` in the `"chat"` section somewhere safe. 
-
 ## Start the workshop
 
 First, we need to login to the OpenShift cluster from both web console and terminal. 
@@ -70,8 +49,28 @@ First, we need to login to the OpenShift cluster from both web console and termi
 &#9744; change the `from('timer:tick?period=3000')` to `from('timer:tick?period=5000')` in the `helloworld.groovy` file \
 > The running integratino will reload itself first, a few seconds later you will see the hello world message printing out in the terminal every 5 seconds 
 
+### 2. Chuck Norris Joke
+[This example](https://github.com/nexus-Six/camelk-integration-workshop/tree/master/02-kamelets-examples/chuck-norris-example) demonstrates how to create a simple Chuck Norris Kamelet source and how to integrate it with telegram. Our goal is to receive some funny jokes on our telegram
 
+> Note: if you haven't used telegram before, you can simply download the `Telegram` mobile app and create a new account there. Remember to create an unique username as well.
 
+We still need two things:
+1. A telegram bot
+2. Chat ID
+
+#### Create a telegram bot
+&#9744; Search for username @BotFather \
+&#9744; Start the chat (/start) \
+&#9744; Send /newbot to @BotFather \
+&#9744; Follow the instruction of @BotFather and create a name and username for the bot.
+&#9744; Once the bot is created, we will get a token to access the HTTP API, **keep the token secure and store it safely**. 
+
+#### Get our Chat ID
+&#9744; Search for username @RawDataBot with name `Telegram Bot Raw` \
+&#9744; Start the chat (/start) \
+&#9744; You will receive a message from the @RawDataBot, store the `"id"` in the `"chat"` section somewhere safe. 
+
+> Once we get the telegram bot token and the chat ID, remember to save it somewhere that you can find them. We will need them in the following examples.
 
 
 
