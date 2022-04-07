@@ -64,7 +64,7 @@ We still need two things:
 &#9744; Search for username @BotFather \
 &#9744; Start the chat (/start) \
 &#9744; Send /newbot to @BotFather \
-&#9744; Follow the instruction of @BotFather and create a name and username for the bot.
+&#9744; Follow the instruction of @BotFather and create a name and username for the bot. \
 &#9744; Once the bot is created, we will get a token to access the HTTP API, **keep the token secure and store it safely**. 
 
 #### Get our Chat ID
@@ -72,7 +72,7 @@ We still need two things:
 &#9744; Start the chat (/start) \
 &#9744; You will receive a message from the @RawDataBot, store the `"id"` in the `"chat"` section somewhere safe. 
 
-> Once we get the telegram bot token and the chat ID, remember to save it somewhere that you can find them. We will need them in the following examples.
+> Once you get the telegram bot token and the chat ID, remember to save them somewhere, where you can easily find them. We will need them in the following examples.
 
 #### Let's get started
 
