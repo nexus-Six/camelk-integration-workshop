@@ -89,8 +89,7 @@ We still need two things:
 > You should see the jokes appearing in the terminal. 
 > [All the supported languages for Camel K integration](https://camel.apache.org/camel-k/1.8.x/languages/languages.html)
 
-&#9744; create a [chuck-norris-telegram.groovy](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/02-kamelets-examples/chuck-norris-example/chuck-norris-telegram.groovy) \
-&#9744; `kamel run chuck-norris-telegram.groovy --dev` - run the integration with telegram, provide the bot Token and chat ID 
+&#9744; Change the `.to('log:info')` to `.to("telegram:bots?authorizationToken=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&chatID=XXXXXXXXXXXXX")`  - run the integration with telegram, provide the bot Token and chat ID 
 > You should see the jokes sending to your telegram.
 
 &#9744; `oc delete project userX-chuck-norris` - clean up the project
