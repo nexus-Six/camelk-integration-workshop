@@ -113,7 +113,7 @@ In [this example](https://github.com/nexus-Six/camelk-integration-workshop/tree/
 &#9744; create a [telegram-source-binding.yaml](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/03-knative-example/telegram-example/printer-example/telegram-source-binding.yaml) that binds the Knative channel to the telegram source \
 &#9744; `oc apply -f telegram-source-binding.yaml` - create the binding between the Knative channel and the telegram source \
 &#9744; `oc get integrations` - check the status of the kamelet binding \
-&#9744; oc apply -f [printer.groovy](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/03-knative-example/telegram-example/printer-example/printer.groovy) - create the integration that prints out the messages sent to the telegram bot 
+&#9744; kamel run [printer.groovy](https://github.com/nexus-Six/camelk-integration-workshop/blob/master/03-knative-example/telegram-example/printer-example/printer.groovy) - create the integration that prints out the messages sent to the telegram bot 
 > We will explain it in details during the workshop.
 > You should see the printer running in one pod first
 
